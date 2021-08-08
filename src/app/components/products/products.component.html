@@ -1,0 +1,3 @@
+<input type="text" name="" id="" [(ngModel)]="productName">
+<button (click)="addProduct()" [disabled]="isDisabled">Add product</button>
+<app-product (productClickEvent)="removeProduct(product)" *ngFor="let product of productList" [productName]="product"></app-product>
