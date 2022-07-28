@@ -18,8 +18,10 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
   }
-  addProduct(){
-    this.productList.push(this.productName);
+  addProduct(form){
+    //this.productList.push(this.productName);
+    console.log(form.controls.productName.value);
+    this.productList.push(form.controls.productName.value);
   }
   removeProduct(productName:string){
     this.productList=this.productList.filter(product=>product!==productName);
