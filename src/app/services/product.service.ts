@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 export class ProductService {
   
   private products=['A Book'];
-  productsUpdated=new Subject();
+  productsUpdated=new Subject<void>();
 
   constructor() { }
 
