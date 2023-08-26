@@ -1,7 +1,20 @@
-<form (ngSubmit)="addProduct(f)" #f="ngForm">
-    <input type="text" name="productName" id="" ngModel>
-    <button type="submit">Add products</button>
+<!-- 
+//Form without material design  
+<form [formGroup]="productsForm" (ngSubmit)="addProduct()">
+  <input type="text" formControlName="productName" id="productName"/>
+  <button type="submit">Add products</button>
+</form> -->
+
+<!-- //Form with material design -->
+<form class="example-form" [formGroup]="productsForm" (ngSubmit)="addProduct()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Enter your task</mat-label>
+    <input matInput placeholder="Ex. Pizza" type="text" formControlName="productName" id="productName">
+  </mat-form-field>
+  <button mat-icon-button color="accent" type="submit">
+    <mat-icon>add</mat-icon>
+  </button>
 </form>
 
-<app-product (productClickEvent)="removeProduct(product)" *ngFor="let product of productList" [productName]="product">
-</app-product>
+<!-- <app-product  (productClickEvent)="removeProduct(product)"  *ngFor="let product of productList"  [productName]="product"></app-product> -->
+<app-product *ngFor="let product of productList"  [productName]="product"></app-product>

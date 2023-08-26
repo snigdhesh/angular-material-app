@@ -1,6 +1,36 @@
-# AngularMaterialFirebaseApp
+
+# AngularMaterialApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+
+## Udemy course
+
+https://www.udemy.com/course/angular-full-app-with-angular-material-angularfire-ngrx/
+
+## Angular material component references
+
+https://material.angular.io/
+
+## How to add angular material to your angular app
+
+- Go to https://material.angular.io/
+- Go to Guides > Getting started
+
+**Note:** You don't install angular material package gobally on your machine. It's a per project dependency.
+
+## Technologies used
+
+ - Controlling layout with @angular/flex-layout package
+
+## Things you often miss
+
+ - You need to both import and export any `material module` in `material.module.ts`
+ - All three following are required for datePickModule **(udemy course didn't mention to import BrowserAnimationsModule)**
+    ```
+        import {MatDatepickerModule} from '@angular/material/datepicker';
+        import {MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+        import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+    ```
 
 ## Development server
 

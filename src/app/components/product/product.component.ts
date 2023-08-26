@@ -8,15 +8,12 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   @Input() productName:string;
-  @Output() productClickEvent=new EventEmitter();
 
   constructor(private productService: ProductService) {  }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  productClicked(){
-    //this.productClickEvent.emit();
+  productClicked(){    
     this.productService.deleteProduct(this.productName);
   }
 

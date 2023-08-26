@@ -1,5 +1,5 @@
 {
-  "name": "angular-material-firebase-app",
+  "name": "angular-material-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,11 +11,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.2.0",
+    "@angular/animations": "^16.2.2",
+    "@angular/cdk": "^16.2.1",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "~16.2.0",
     "@angular/core": "^16.2.0",
+    "@angular/flex-layout": "^15.0.0-beta.42",
     "@angular/forms": "^16.2.0",
+    "@angular/material": "^16.2.1",
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
