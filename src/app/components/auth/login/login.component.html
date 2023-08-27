@@ -3,7 +3,6 @@
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email" email required />
-
         <!-- Errors -->
         <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email cannot be empty</mat-error>
         <mat-error>Invalid email</mat-error>

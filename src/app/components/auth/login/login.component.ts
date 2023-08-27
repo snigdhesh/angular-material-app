@@ -8,11 +8,14 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class LoginComponent {
   hidePassword: boolean = true;
+  loginForm: FormGroup;
 
-  loginForm = new FormGroup({
-    email: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required),
-  });
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      email: new FormControl("", {validators: [Validators.required,Validators.email]}),
+      password: new FormControl("", {validators: [Validators.required]}),
+    });
+  }
 
   onSubmit() {
     console.log(this.loginForm.value);

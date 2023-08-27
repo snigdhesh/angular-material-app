@@ -12,6 +12,9 @@ import {MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //To workwith checkboxes in a form, you need following
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
     imports:[
@@ -25,7 +28,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         MatDatepickerModule,
         MatNativeDateModule,
         BrowserAnimationsModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatSidenavModule,
+        MatToolbarModule
     ],
     exports: [
         MatSlideToggleModule,
@@ -38,7 +43,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         MatDatepickerModule,
         MatNativeDateModule,
         BrowserAnimationsModule,
-        MatCheckboxModule  
+        MatCheckboxModule,
+        MatSidenavModule,
+        MatToolbarModule  
     ]
 })
 export class MaterialModule{}

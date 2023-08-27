@@ -1,8 +1,6 @@
 
 # AngularMaterialApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
-
 ## Udemy course
 
 https://www.udemy.com/course/angular-full-app-with-angular-material-angularfire-ngrx/
@@ -31,7 +29,13 @@ https://material.angular.io/
         import {MatNativeDateModule, MatRippleModule } from '@angular/material/core';
         import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ```
-
+## Useful Resources & Links
+ - Angular Material Setup Docs: https://material.angular.io/guide/getting-started
+ - Angular Material Component Docs: https://material.angular.io/components/categories
+ - Angular Material Github Repo: https://github.com/angular/material2
+ - @angular/flex-layout Docs: https://github.com/angular/flex-layout
+ - Flexbox Guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ - Flexbox Video: https://academind.com/learn/css/understanding-css/flexbox-basics-container
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
