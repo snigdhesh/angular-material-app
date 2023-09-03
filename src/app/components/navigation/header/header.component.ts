@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { IMenuOption } from "../../data/IMenuOptions";
 import { MenuItems } from "../../data/menu-items";
 import { AuthService } from "../../auth/auth.service";
+import { NavigationService } from "../navigation.service";
 
 @Component({
   selector: "app-header",
@@ -12,7 +13,7 @@ import { AuthService } from "../../auth/auth.service";
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() toggleSideNavEvent = new EventEmitter<void>();
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService,private navigationService: NavigationService) { }
 
   menuOptions: IMenuOption[];
 
@@ -26,27 +27,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
       console.log("AuthStatus", authStatus);
       this.isAuth = authStatus;
       console.log("Authentication", this.isAuth)
-      this.toggleLoginLogoutButton();
+      this.toggleMenuOptions();
     })
 
     //This runs only when component is initialized
-    this.toggleLoginLogoutButton();
+    this.toggleMenuOptions();
 
   }
 
-  toggleLoginLogoutButton() {
-    this.menuOptions = [...MenuItems];
-
-    if (this.isAuth)
-      this.removeItemsFromArray(["signup", "login"]);
-    else
-      this.removeItemsFromArray(["training", "logout"]);
-  }
-
-  removeItemsFromArray(arr: string[]) {
-    arr.forEach(item => {
-      this.menuOptions.splice(this.menuOptions.findIndex(i => i.text == item), 1);// we use splice(indexOfElement, numberOfElementsToRemove); to remove an element from an array.
-    })
+  toggleMenuOptions(){
+    this.menuOptions=[...MenuItems]//send a copy of array to method. This way if element is deleted in copy, actual array will not be effected.
+    this.menuOptions=this.navigationService.toggleLoginLogoutButton(this.menuOptions,this.isAuth);
   }
 
   goHome() {
