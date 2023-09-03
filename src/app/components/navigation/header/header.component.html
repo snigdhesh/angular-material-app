@@ -1,0 +1,19 @@
+<!-- Alternative approach: <button (click)="openSideNav=!openSideNav">side nav</button> -->
+<!-- //mat-toolbar by default has display: flex -->
+<mat-toolbar color="accent">
+  <div>
+    <button mat-icon-button (click)="toggleSideNav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div (click)="goHome()" class="logo">Naga</div>
+
+  <div class="links">
+    <div *ngFor="let i of menuOptions">
+      <button mat-button class="menuItem" (click)="getToPage(i.path)">
+        {{ i.text }}
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

@@ -8,21 +8,6 @@ mat-sidenav {
   width: 25%;
 }
 
-.links {
-  /* margin-left: auto; this will move element with id=links to extreme left*/
-  border: 0px solid black;
-  display: flex;
-  margin-left: auto;
-  column-gap: 5%;
-  overflow-x: hidden;
-  width: 50%;
-  justify-content: flex-end;
-}
-
-button{
-    overflow: hidden;
-}
-
 /* ul{
     width: 25%;
     list-style: none;
@@ -33,7 +18,3 @@ button{
     column-gap: 5%;
     overflow-x: hidden;
 } */
-
-.logo {
-  cursor: pointer;
-}

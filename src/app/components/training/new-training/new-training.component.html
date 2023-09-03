@@ -1,1 +1,18 @@
-<p>new-training works!</p>
+<section class="container">
+  <mat-card>
+    <mat-card-title>Time to start workout</mat-card-title>
+    <mat-card-content>Select type of training</mat-card-content>
+    <mat-form-field>
+      <mat-label>Favorite exercise</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" type="submit" (click)="startTraining()">Start</button>
+    </mat-card-actions>
+  </mat-card>
+</section>
+

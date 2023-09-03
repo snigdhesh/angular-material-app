@@ -29,6 +29,23 @@ https://material.angular.io/
         import {MatNativeDateModule, MatRippleModule } from '@angular/material/core';
         import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ```
+- Add `skipLibCheck: true` in `tsconfig.json > compilerOptions`.  
+  This avoids following error, while using EventEmitter from @angular/core
+    ```
+        error S2300: Duplicate identifier 'IteratorResult'
+    ```
+- `<mat-card>` uses `.mdc-card` internally. You can control mat-card's css only with `.mdc-card` class.
+- setTimeout() method is different from setInterval() method. setTimeout() executes only once, setInteval() executes in a loop.
+
+IMPORTANT: Install rxjs-compat
+As explained in the last video, you could theoretically NOT use rxjs-compat  and update all your RxJS-related code (imports + operator usage) as explained.
+
+BUT Angularfire wasn't updated to support RxJS 6 yet. And since we'll use Angularfire in this course, you will need rxjs-compat  installed for the time being
+
+```
+npm install --save rxjs-compat 
+```
+    
 ## Useful Resources & Links
  - Angular Material Setup Docs: https://material.angular.io/guide/getting-started
  - Angular Material Component Docs: https://material.angular.io/components/categories

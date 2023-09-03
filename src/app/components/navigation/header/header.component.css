@@ -1,0 +1,36 @@
+.links {
+  /* margin-left: auto; this will move element with id=links to extreme left*/
+  border: 0px solid black;
+  display: flex;
+  margin-left: auto;
+  column-gap: 5%;
+  overflow-x: hidden;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+button {
+  overflow: hidden;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.menuItem {
+  font-size: 1em;
+}
+mat-toolbar{
+  margin-bottom: 5%;
+}
+/*This means, apply CSS, if width is less than or equal to 600px
+In other words, apply CSS for upto max 1050px, if screen size crosses 1050px, this CSS won't apply
+*/
+@media only screen and (max-width: 1050px) {
+    .links {
+      display: none;
+    }
+    mat-sidenav {
+      width: 50%;
+    }
+  }

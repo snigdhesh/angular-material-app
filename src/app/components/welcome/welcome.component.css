@@ -1,0 +1,20 @@
+.welcome {
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  column-gap: 1%;
+}
+
+section{
+    border: 1px solid black;
+}
+
+/*This means, apply CSS, if width is less than or equal to 600px
+In other words, apply CSS for upto max 600px, if screen size crosses 600px, this CSS won't apply
+*/
+@media only screen and (max-width: 600px) {
+  .welcome {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}

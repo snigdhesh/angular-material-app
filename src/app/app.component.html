@@ -1,34 +1,20 @@
 <!-- 
 mat-container: has following children
-    mat-sidenav : This is for side nav
-    mat-sidenav-content: This is display actual component
+    mat-sidenav : This is for side nav bar.
+    mat-sidenav-content: This is display actual component in main screen.
 -->
 <mat-sidenav-container>
+  <!-- //mat-sidenav always needs to be a direct child of mat-sidenav-container, it's not a good idea to separate it into saperate component -->
+  <mat-sidenav opened="{{ openSideNav }}">
+    <app-sidenav-list (toggleSideNavEvent)="toggleSideNav()"></app-sidenav-list>
+  </mat-sidenav>
 
-    <mat-sidenav opened={{openSideNav}}>
-        <p>This is side nav</p>
-    </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (toggleSideNavEvent)="toggleSideNav()"></app-header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 
-    <mat-sidenav-content>
-        <!-- <button (click)="openSideNav=!openSideNav">side nav</button> -->
-        <!-- //mat-toolbar by default has display: flex -->
-        <mat-toolbar color="accent">
-            <div>
-                <button mat-icon-button (click)="toggleSideNav()">
-                    <mat-icon>menu</mat-icon>
-                </button>
-            </div>
-            <div (click)="goHome()" class="logo">T-Mobile</div>
-            <div class="links">
-                <div *ngFor="let i of menuOptions">
-                    <button mat-button (click)="getToPage(i)">{{i}}</button>
-                </div>
-            </div>
-        </mat-toolbar>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
 </mat-sidenav-container>
-
 
 <!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle>
 <mat-divider></mat-divider>
