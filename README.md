@@ -19,6 +19,7 @@ https://material.angular.io/
 ## How to create Auth guard with scaffolding?
 
  - ng g g /components/auth/auth   where, /components/auth is directory and last auth is the guard name.
+ - Reference link to implement authGuard in angular 16: https://www.youtube.com/watch?v=tFsCynatnlo
 
 ## Technologies used
 
