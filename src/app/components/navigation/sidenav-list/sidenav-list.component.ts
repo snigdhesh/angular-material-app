@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
 import { IMenuOption } from "../../data/IMenuOptions";
 import { MenuItems } from "../../data/menu-items";
 import { AuthService } from "../../auth/auth.service";
@@ -9,7 +9,7 @@ import { NavigationService } from "../navigation.service";
   templateUrl: "./sidenav-list.component.html",
   styleUrls: ["./sidenav-list.component.css"],
 })
-export class SidenavListComponent {
+export class SidenavListComponent implements OnInit, OnDestroy {
   @Output() toggleSideNavEvent = new EventEmitter();
 
   menuOptions: IMenuOption[];
@@ -22,9 +22,7 @@ export class SidenavListComponent {
 
     //This runs, whenever event/subject is emitted.
     this.authService.subject.subscribe(authStatus => {
-      console.log("AuthStatus", authStatus);
       this.isAuth = authStatus;
-      console.log("Authentication", this.isAuth)
       this.toggleMenuOptions();
     })
     
@@ -40,5 +38,9 @@ export class SidenavListComponent {
 
   toggleSideNav() {
     this.toggleSideNavEvent.emit();
+  }
+
+  ngOnDestroy(){
+    this.authService.subject.unsubscribe();
   }
 }

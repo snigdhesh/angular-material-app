@@ -13,7 +13,7 @@ import { NavigationService } from "../navigation.service";
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() toggleSideNavEvent = new EventEmitter<void>();
 
-  constructor(private router: Router, private authService: AuthService,private navigationService: NavigationService) { }
+  constructor(private router: Router, private authService: AuthService, private navigationService: NavigationService) { }
 
   menuOptions: IMenuOption[];
 
@@ -35,9 +35,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
 
-  toggleMenuOptions(){
-    this.menuOptions=[...MenuItems]//send a copy of array to method. This way if element is deleted in copy, actual array will not be effected.
-    this.menuOptions=this.navigationService.toggleLoginLogoutButton(this.menuOptions,this.isAuth);
+  toggleMenuOptions() {
+    this.menuOptions = [...MenuItems]//send a copy of array to method. This way if element is deleted in copy, actual array will not be effected.
+    this.menuOptions = this.navigationService.toggleLoginLogoutButton(this.menuOptions, this.isAuth);
   }
 
   goHome() {
@@ -49,7 +49,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getToPage(path: string) {
-    this.router.navigate([path]);
+    if (path == 'logout')
+      this.authService.logout();
+    else
+      this.router.navigate([path]);
   }
 
   //unsubscribe any subscriptions, to avoid any memory leaks.

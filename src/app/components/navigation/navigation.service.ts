@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IMenuOption } from '../data/IMenuOptions';
 
+//@Injectable annotation enables a feature: Inject a service to another service
 @Injectable({
   providedIn: 'root'
 })
