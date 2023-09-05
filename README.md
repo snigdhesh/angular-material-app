@@ -16,6 +16,10 @@ https://material.angular.io/
 
 **Note:** You don't install angular material package gobally on your machine. It's a per project dependency.
 
+## How to create Auth guard with scaffolding?
+
+ - ng g g /components/auth/auth   where, /components/auth is directory and last auth is the guard name.
+
 ## Technologies used
 
  - Controlling layout with @angular/flex-layout package
