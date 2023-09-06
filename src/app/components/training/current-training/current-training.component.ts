@@ -1,30 +1,38 @@
-import { Component, EventEmitter, Output } from "@angular/core";
 import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialogModule,
-} from "@angular/material/dialog";
-import { ProductsComponent } from "../../products/products.component";
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from "@angular/core";
+import { Subscription } from "rxjs";
+import { MatDialog } from "@angular/material/dialog";
 import { StopTrainingComponent } from "../stop-training/stop-training.component";
+import { TrainingService } from "../training.service";
+import { Exercise } from "../exercise.model";
 
 @Component({
   selector: "app-current-training",
   templateUrl: "./current-training.component.html",
   styleUrls: ["./current-training.component.css"],
 })
-export class CurrentTrainingComponent {
+export class CurrentTrainingComponent implements OnInit {
   progress = 0;
   timer: any;
+  @Input() exercise: Exercise;
 
   @Output() trainingExitEvent = new EventEmitter<void>();
+  subscription: Subscription;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void{
     this.startOrResumeTimer();
   }
-  
+
   startOrResumeTimer() {
     this.timer = setInterval(() => {
       this.progress = this.progress + 2;
@@ -49,11 +57,10 @@ export class CurrentTrainingComponent {
 
     // When ever dialog box is closed, it returns an observerable. Hence we can subscribe to it
     dialogRef.afterClosed().subscribe((result) => {
-      //console.log(result); -- To test what's coming in result.
-      if (result) this.trainingExitEvent.emit();
+      //console.log(result); -- To test what's coming in result of dialog box.
+      if (result)
+        this.trainingExitEvent.emit(); //This event is used in training.component.html
       else this.startOrResumeTimer();
     });
   }
-
-
 }

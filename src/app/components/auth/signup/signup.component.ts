@@ -28,7 +28,6 @@ export class SignupComponent{
   });
 
   onSubmit(){
-    console.log(this.signUpForm.value);
     var formatedDate = new Date(this.signUpForm.value.datepicker).toLocaleString();
     this.dob=formatedDate.split(",")[0];
     this.authService.registerUser({

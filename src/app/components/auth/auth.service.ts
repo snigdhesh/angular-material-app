@@ -29,7 +29,6 @@ export class AuthService {
       email: authData.email,
       id: Math.round(Math.random() * 1000).toString()
     }
-    console.log("logged in user",this.user)
     this.subject.next(true); //This will emit and event (we use subject in service class, instead of EventEmitter class)
     this.router.navigate(['/training']);
   }

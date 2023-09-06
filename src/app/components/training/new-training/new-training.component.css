@@ -1,24 +1,26 @@
 /*`<mat-card>` uses `.mdc-card` internally. You can control mat-card's css only with `.mdc-card` class.*/
-.mdc-card{
-    padding: 2%;
-    width: 50%;
-    align-items: center;
-    row-gap: 20px;
-}
-
-mat-card-title, mat-card-content{
-    border: 0px solid black;
+form{
+    width: 100%;
     display: flex;
     justify-content: center;
 }
-
-.container{
-    display: flex;
-    justify-content: center;
-    padding: 2%;
+.mdc-card {
+  padding: 2%;
+  width: 50%;
+  align-items: center;
+  row-gap: 20px;
 }
 
-mat-form-field{
-    width: 50%;
-    border: 0px solid black;
+mat-card-title,mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+mat-form-field {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
 }

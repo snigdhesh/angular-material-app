@@ -1,6 +1,12 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from "@angular/core";
 import { Router } from "@angular/router";
-import { IMenuOption } from "../../data/IMenuOptions";
+import { IMenuOption } from "../../data/menu.model";
 import { MenuItems } from "../../data/menu-items";
 import { AuthService } from "../../auth/auth.service";
 import { NavigationService } from "../navigation.service";
@@ -13,7 +19,11 @@ import { NavigationService } from "../navigation.service";
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() toggleSideNavEvent = new EventEmitter<void>();
 
-  constructor(private router: Router, private authService: AuthService, private navigationService: NavigationService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private navigationService: NavigationService
+  ) {}
 
   menuOptions: IMenuOption[];
 
@@ -23,21 +33,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.menuOptions = [...MenuItems];
 
     //This runs, whenever event/subject is emitted.
-    this.authService.subject.subscribe(authStatus => {
-      console.log("AuthStatus", authStatus);
+    this.authService.subject.subscribe((authStatus) => {
       this.isAuth = authStatus;
-      console.log("Authentication", this.isAuth)
       this.toggleMenuOptions();
-    })
+    });
 
     //This runs only when component is initialized
     this.toggleMenuOptions();
-
   }
 
   toggleMenuOptions() {
-    this.menuOptions = [...MenuItems]//send a copy of array to method. This way if element is deleted in copy, actual array will not be effected.
-    this.menuOptions = this.navigationService.toggleLoginLogoutButton(this.menuOptions, this.isAuth);
+    this.menuOptions = [...MenuItems]; //send a copy of array to method. This way if element is deleted in copy, actual array will not be effected.
+    this.menuOptions = this.navigationService.toggleLoginLogoutButton(
+      this.menuOptions,
+      this.isAuth
+    );
   }
 
   goHome() {
@@ -49,10 +59,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getToPage(path: string) {
-    if (path == 'logout')
-      this.authService.logout();
-    else
-      this.router.navigate([path]);
+    if (path == "logout") this.authService.logout();
+    else this.router.navigate([path]);
   }
 
   //unsubscribe any subscriptions, to avoid any memory leaks.
