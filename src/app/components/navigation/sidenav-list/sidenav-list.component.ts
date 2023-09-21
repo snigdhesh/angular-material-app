@@ -9,6 +9,7 @@ import { IMenuOption } from "../../data/menu.model";
 import { MenuItems } from "../../data/menu-items";
 import { AuthService } from "../../auth/auth.service";
 import { NavigationService } from "../navigation.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-sidenav-list",
@@ -22,6 +23,7 @@ export class SidenavListComponent implements OnInit, OnDestroy {
   isAuth: boolean = false;
 
   constructor(
+    private router: Router,
     private authService: AuthService,
     private navigationService: NavigationService
   ) {}
@@ -47,11 +49,19 @@ export class SidenavListComponent implements OnInit, OnDestroy {
     );
   }
 
-  toggleSideNav() {
+  toggleSideNav(path: string) {
     this.toggleSideNavEvent.emit();
+    this.getToPage(path);
   }
 
   ngOnDestroy() {
     this.authService.subject.unsubscribe();
   }
+
+  getToPage(path: string) {
+    if (path == "logout") this.authService.logout();
+    else this.router.navigate([path]);
+  }
+
+  
 }

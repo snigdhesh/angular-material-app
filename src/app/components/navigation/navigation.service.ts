@@ -18,10 +18,7 @@ export class NavigationService {
   //Note: we use splice(indexOfElement, numberOfElementsToRemove); to remove an element from an array.
   removeItemsFromArray(menuOptions: IMenuOption[], arr: string[]) {
     arr.forEach((item) => {
-      menuOptions.splice(
-        menuOptions.findIndex((i) => i.text == item),
-        1
-      );
+      menuOptions.splice(menuOptions.findIndex((i) => i.text == item),1);
     });
   }
 }
